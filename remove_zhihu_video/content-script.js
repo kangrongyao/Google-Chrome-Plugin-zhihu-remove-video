@@ -9,12 +9,13 @@ window.onload=function() {
         }
     });
     //增加每次追加的元素，选择移除
-    document.getElementsByClassName('Topstory-recommend')[0].children[0].addEventListener("DOMNodeInserted", function(e){
-        if(e.relatedNode.className=='RichContent-cover-inner'){
-            //class里面有ZVideoItem
-            if(e.relatedNode.parentNode.parentNode.parentNode.className.indexOf('ZVideoItem')!=-1){
-                e.relatedNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display='none';
+    if(document.getElementsByClassName('Topstory-recommend')[0])
+        document.getElementsByClassName('Topstory-recommend')[0].children[0].addEventListener("DOMNodeInserted", function(e){
+            if(e.relatedNode.className=='RichContent-cover-inner'){
+                //class里面有ZVideoItem
+                if(e.relatedNode.parentNode.parentNode.parentNode.className.indexOf('ZVideoItem')!=-1){
+                    e.relatedNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display='none';
+                }
             }
-        }
-    });
+        });
 };
